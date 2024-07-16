@@ -1,0 +1,93 @@
+-->using linux download any of the youtube video on the system 
+-->Automate the linux system so that it will keep appending date and time of your current system after every 5minute
+
+
+notes of 2july::---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+question 1)==>>create 4 files 2text and 2pdf file create tar file with the name yash.tar insert text file now see all the content of tar file now you have to append the remening pdf files in yash.tar now extract the text file in the current location??
+
+
+note1))::========>>>>>>>>>>>>>>>>>>>>>>>>>
+ls::-----------
+-permission 
+-link
+-user/owner name
+-group
+-size of file
+-time
+-file/folder name
+::-----------------
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+-->>In linux permission got divided into 3 
+1)owner(u)
+2)group(g)
+2)other(o)
+
+** read,write,execute are the permissions given to above 3.
+
+**total 10 values jisme 1 bhool jo agle 3 owner ki agle 3 group ki agle 3 other ki
+- -rwxrwxrwx
+
+
+**                   file | folder
+ ->read(4):content read   | ->we can run ls command.
+   from file(cat,tail)    |
+                          |
+ ->write(2):we can write  | ->we can create folder or delete files and folders.
+   or modify inside the   |
+   file                   |
+                          |
+->execute(1):we can run a | ->we can change the directory.
+     file as a program    |
+
+
+** to remove permission -->> chmod u(for owner)-w(permission jise hattane h) file-name   (ex--> chmod u-w data.txt)
+
+** to give permission -->> chmod u(for owner)+w(permission jise dene h) file-name   (ex--> chmod u+w data.txt)
+
+question 2) create user ujjwal user have unique identityy 5000 user bannete time ek comment aana chiye skit user created user account must be expire in 24hr. the user must be added in sales group the user should have a home directory user should have a shell /bin/sh . do all task in one command??
+question 3) make a group sales and marketing  then create a user ishan and add the ishan user in sales group and then add it in marketing group and make sure ishan must be in both of groups.
+
+****
+to make  user-->> sudo groupadd group-name
+to insert user in the group-->>sudo usermod -aG group-name user-name
+to see the user in the froup-->>gatent group group-name
+*****
+
+************************************************************ |git and github| ******************************************************************************************
+! git manages the file and folder for us and it is known as Version Control System
+
+! there are three stages
+1)working directory
+2)staging area
+3).git folder
+
+->working directory se staging area ==> git add(temporary)
+->staging area se .git folder==> git commit(permanent)
+
+==> to set user name in to git bash =====>> $ git config --global  user.name "Abhay Sharma"
+==> to user email address to git bash====>> $ git config --global  user.email "abhaysharma4002@gmail.com"
+==> to initiate git ====>> git init
+
+********************** learning assignment****************************
+-------------->>>QUESTIONS<<<<<<--------------------------------------
+1)what is branches in git
+2)difference between pull and push 
+3)difference between pull and fetch
+------------>>>ANSWERS<<<<--------------------------------------------
+ANS 3)=>Git Pull:
+The "git pull" command is a combination of two other Git commands: 
+"git fetch" and "git merge." It fetches changes from the remote repository 
+and automatically merges them into the current branch.
+
+Git Fetch:
+The "git fetch" command only retrieves changes from the remote repository 
+but does not automatically merge them into the current branch. 
+Instead, it updates the remote-tracking branches.
+
+ANS 2)=>
+**********************************************************************
+
+notes of 3july::---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
