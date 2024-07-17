@@ -162,3 +162,26 @@ h5{
     display: block;
   }
   
+  @media (max-width:680px) {
+    .left{
+        display: none;
+    }
+    .right{
+        width: 50%;
+    }
+    .footer{
+        margin-top: 230px;
+        text-align: center;
+    }
+  }
+  @media (max-width:500px) {
+    .left{
+        display: none;
+    }
+    .right{
+        border: 2px solid #e8e8e8;
+        height: 395px;
+        width: 345px;
+        border-radius: 3px;
+        }
+  }
