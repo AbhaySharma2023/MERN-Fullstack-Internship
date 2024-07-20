@@ -1,0 +1,106 @@
+How many documents are there in the collection?
+ans=>db.users.find().size();
+
+Retrieve all documents where the role is "admin".
+ans=>db.users.find({role:'admin'});
+
+Find all documents where the role is "customer" and the username contains "Karamchandani".
+ans=>db.users.find({role:'customer',username:'Karamchandani'});
+
+Retrieve the document with the username "Sumanth Rao".
+ans=>db.users.find({username:'Sumanth Rao'});
+
+Find all documents where the user's first name starts with "R".
+ans=>db.users.find({username:/^R/});
+
+Retrieve all documents where the user has the skill "Python".
+ans=>db.users.find({skills:'Python'});
+
+Find all documents where the user has the skill "Java" and "Python".
+ans=>db.users.find({"$and":[{skills:"Java"},{skills:"Python"}]});
+
+Retrieve all documents where the user's first name is "Aryan" or the last name is "Gupta".
+ans=>db.users.find({"$and":[{firstName:"Anjali"},{lastNmae:"Gupta"}]});
+
+Find all documents where the user has the skill "Java" but not "Python".
+ans=>db.users.find({skills:{"$in":["Java"],"$nin":["Python"]}});
+
+Retrieve all documents where the user's last name is "Sharma" and the role is "customer".
+ans=> db.users.find({"$and":[{role:"customer"},{lastName:"Sharma"}]});
+
+Find all documents where the user has exactly three skills.
+ans=>db.users.find({ "skills.3": { "$exists": true } });
+
+Retrieve all documents where the user's first name starts with "S" and the role is "admin".
+ans=>db.users.find({firstName:/^A/},{role:"admin"});
+
+Find all documents where the user has the skill "Java" and the role is not "admin".
+ans=>db.users.find({skills:'Java',role:{"$ne":"admin"}});
+
+Retrieve all documents where the user's role is not specified.
+ans=>db.users.find({role:{"$exists":false}});
+
+Find all documents where the user has at least four skills.
+ans=>db.users.find({ "skills.4": { "$exists": true } });
+
+Retrieve all documents where the user's role is "customer" and the user has no specified skills.
+ans=>db.users.find({role:"customer",skills:{"$exists":false}});
+
+Find all documents where the user's email contains "regexsoftware.com".
+ans=>db.users.find({useremail:/@regexsoftware.com/});
+
+Retrieve all documents where the user's email does not contain "gmail.com".
+ans=>db.users.find({useremail:/gmail.com/});
+
+Find all documents where the user's last name is not "Singh".
+ans=>db.users.find({lastName: { "$ne": "Singh" }});
+
+Retrieve all documents where the user's role is "admin" and the user has the skill "Java".
+Find all documents where the user's first name is "Ananya" and the user's role is "customer".
+Retrieve all documents where the user's role is "admin" and the user has at least one skill.
+Find all documents where the user's role is "admin" and the user's first name starts with "R".
+Retrieve all documents where the user's role is "customer" and the user's last name is "Patel".
+Find all documents where the user's role is "admin" and the user has the skill "Python".
+Retrieve all documents where the user's role is "customer" and the user's last name is not "Gupta".
+Find all documents where the user's role is "admin" and the user's email ends with "@regexsoftware.com".
+Retrieve all documents where the user's role is "customer" and the user has the skill "React".
+Find all documents where the user's role is "customer" and the user has the skill "SQL".
+Retrieve all documents where the user's role is "admin" and the user has at least three skills.
+Find all documents where the user's role is "customer" and the user has the skills "Java" and "C++".
+Retrieve all documents where the user's role is "admin" and the user's email does not contain "gmail.com".
+Find all documents where the user's role is "customer" and the user's last name starts with "M".
+Retrieve all documents where the user's role is "admin" and the user's first name is not "Rahul".
+Find all documents where the user's role is "customer" and the user's email does not contain "gmail.com".
+Retrieve all documents where the user's role is "admin" and the user has the skill "Java" but not "JavaScript".
+Find all documents where the user's role is "customer" and the user's first name is not "Ananya".
+Retrieve all documents where the user's role is "admin" and the user's email contains "regexsoftware.com".
+Find all documents where the user's role is "customer" and the user has the skill "HTML" but not "CSS".
+Retrieve all documents where the user's role is "admin" and the user has the skill "Java" and "JavaScript".
+Find the average age of users.
+Find all female users from Jaipur who know Python.
+Find all male users in Delhi who are above age 26
+ans=>
+
+Find all users who are from either New Delhi or Mumbai.
+ans=>db.users.find({"$or":{city:"New Delhi",city:"Mumbai"}});
+
+Find all users who have the same last name.
+ans=>
+
+Find the count of users in each city.
+ans=>
+
+How many users are from New Delhi?
+ans=>db.users.find({city:"New Delhi"}).size();
+
+How many Female users are from Jaipur?
+ans=>db.users.count({location: "Jaipur",gender:"Female"});
+
+How many Male users are there in Delhi who have skills Java?
+ans=>db.users.count({city: "Delhi",skills: { "$all": ["Java"] }});
+
+How many users are from Hyderabad having age greater than 24 and have skill Python,C++
+ans=>db.users.count({gender: "Male",city: "Hyderabad",age: { "$gt": 24 },skills: { "$all": ["Python", "C++"] }});
+
+How many female users are from Goa having age greater than 24 and have skill Python,C++
+ans=>db.users.count({gender: "Female",city: "Goa",age: { "$gt": 24 },skills: { "$all": ["Python", "C++"] }});

@@ -1,0 +1,199 @@
+--------------------------------------------------------------------------=||Mongo DB||=-----------------------------------------------------------------------------------------------------
+
+
+Introduction to Mongo DB:->
+! mongoDB is an open-source,document-oriented NoSQL database management system.
+! It stores in the json documents formate.
+!  In mongo DB there is database and in that database there are many collections and in those collections there are many Documents.
+  {Database---->Collections---->Documents}
+! In MongoDB, We Write in JSON formate only but Behind the scene data is stored in      BSON(Binary JSON) formate,a binary representation of JSON.
+
+=>>>>>>>>>>>>Managing Databases and Collections<<<<<<<<<<<<<<<<<<<<<<<==
+
+===>To see available databases -> show dbs;
+===>To use database -> use <database-name>;
+===>To delete database -> db.dropDatabase();
+===>To see collections-> show collections;
+===>To create collections-> db.createCollection('<collection-name>');
+===>To delete collection-> db.<collection-name>.drop();
+
+===>TO insert Documents in MongoDB -> db.<collection-name>.insertOne({field1:value1,field2:value2,.......});
+
+===>TO insert multiple Documents in MongoDB -> db.<collection-name>.insertMany([{field1:value1,field2:value2,.......},{field1:value1,field2:value2,.......},{field1:value1,field2:value2,.......},//......]);
+
+===>To find username by first letter->db.collection_name.find({username:/^R/})
+
+
+====>unwind command->in this we make replica of given dbms
+command=>[
+  {
+    $unwind: "$skills"
+  },
+  {
+    $group: {
+      _id: "$skills",
+      countofusers:{$sum:1}
+    }
+  }
+]
+
+
+
+command2=>[
+  {
+    $unwind: "$skills",
+  },
+  {
+    $group: {
+      _id: "$skills",
+      countofusers: {
+        $sum: 1,
+      },
+      maxsal:{$max:"$salary"},
+      avgsalary:{$avg:"$salary"},
+      minsalary:{$min:"$salary"}
+    },
+  },
+]
+
+
+=====>>To PUSH
+command=>//all the users who have same last name
+[
+  {
+    $group: {
+      _id: "$lastName",
+      usercount:{$sum:1},
+      users:{$push:"$$ROOT"}
+    }
+  }
+]
+
+command=>//all the users by city and find the username those are satisfying that city 
+//who have same last name
+[
+  {
+    $group: {
+      _id: "$city",
+      usercount:{$sum:1},
+      users:{$push:"$$ROOT"}
+    }
+  },
+  {
+    $project: {
+      username:"$users.username"
+    }
+  }
+]
+
+
+
+command=>//group users by role and collect all unique
+//skills by each role
+[
+  {
+   $unwind:"$skills"
+  },
+  {
+    $group: {
+      _id: "$role",
+      skills:{$addToSet:"$skills"},
+      users:{$push:"$$ROOT"}
+    }
+  }
+]
+
+command=>//group the users by gender and collect the salaries for 
+//each gender and also show the user 
+[
+  {
+   $unwind:"$skills"
+  },
+  {
+    $group: {
+      _id: "$gender",
+      username:{$push:{username:"$username",sal:"$salary"}},
+    
+    }
+  }
+]
+
+
+commands==>>>//group users by gender and collect their 
+//object ID'S 
+// [
+//   {
+//    $unwind:"$skills"
+//   },
+//   {
+//     $group: {
+//       _id: "$gender",
+//       username:{$push:"$_id"},
+    
+//     }
+//   }
+// ]
+
+//group uses by skills and return 
+//all the users of particular skills
+// [
+//   {
+//     $unwind: "$skills"
+//   },
+//   {
+//     $group: {
+//       _id: "$skills",
+//       userid:{$push:"$$ROOT"}
+//     }
+//   }
+// ]
+
+
+//group the users on the basis of city and collect 
+//all unique username
+
+// [
+//   {
+//     $group: {
+//       _id: "$city",
+//       userid:{$addToSet:"$$ROOT.username"}
+//     }
+//   }
+// ]
+
+
+//group the users on the basis of city and push only
+//name,salary and age
+
+// [
+//   {
+//     $group: {
+//       _id: "$city",
+//       userid:{$push:{username:"$username",salary:"$salary",age:"$age"}}
+//     }
+//   }
+// ]
+
+
+
+======================>>>>>>>>>>>>BUCKET<<<<<<<<<<<<<<<<================================
+//BUCKET users by salary ranges and calculate the total
+//number of users in each range
+
+[
+  {
+    $bucket: {
+      groupBy: "$salary",
+      boundaries: [ 0,400000,600000,1000000,1500000,2000000],
+      default: "other",
+      output: {
+        count: {$sum:1},
+        username:{$push:{
+             name:"$username",
+          salary:"$salary"
+        }
+        }
+      }
+    }
+  }
+]
