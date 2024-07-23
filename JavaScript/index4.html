@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.container{
+    width: 200px;
+    display: grid;
+    gap: 9px;
+}
+#text{
+    width: 100%;
+    height: 30px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text"  id="text1"  class="int" placeholder="Enter your Name">
+        <input type="email" id="text2" class="int"  placeholder="Enter your Email">
+        <input type="text" id="text3"  class="int"  placeholder="Enter your Age">
+        <input type="text" id="text4"  class="int"   placeholder="Enter your Mobile no">
+        <input type="text" id="text5"  class="int"   placeholder="Enter your City">
+        <input type="text" id="text6" class="int"   placeholder="Enter your Pincode">
+        <button id="btn">Submitt</button>
+    </div>
+
+    <script>
+document.getElementById("btn").onclick=function(){
+let a=document.getElementsByClassName("int");
+// for(let i=0;i<a.length;i++){
+//     console.log(a[i].value)
+// }
+//     console.log(a)
+// document.getElementById("text").value=' ';
+
+// for(let i of a){               //-->another way to declare the for loop
+// console.log(i.value)
+// }
+}
+    </script>
+</body>
+</html>

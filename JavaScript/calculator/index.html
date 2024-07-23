@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <!-- <div class="left">
+            <img src="images/logo.png" alt="">
+        </div> -->
+        <div class="right">
+            <div class="calc">
+                <div class="up">
+                    <input type="text">
+                </div>
+                <div class="down">
+                    <div class="col-1">
+                        <button class="c1">C</button>
+                        <button class="c2">+/-</button>
+                        <button class="c3">%</button>
+                        <button class="c4">/</button>
+                    </div>
+                    <div class="col-1">
+                        <button class="c1">7</button>
+                        <button class="c2">8</button>
+                        <button class="c3">9</button>
+                        <button class="c4">*</button>
+                    </div>
+                    <div class="col-1">
+                        <button class="c1">4</button>
+                        <button class="c2">5</button>
+                        <button class="c3">6</button>
+                        <button class="c4">-</button>
+                    </div>
+                    <div class="col-1">
+                        <button class="c1">1</button>
+                        <button class="c2">2</button>
+                        <button class="c3">3</button>
+                        <button class="c4">+</button>
+                    </div>
+                    <div class="col-1">
+                        <button class="l1">0</button>
+                        <button class="l2">.</button>
+                        <button class="l3">=</button>
+                    </div>qw    1
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let btnm = document.querySelectorAll("button");
+        for(let i of btnm){
+            i.onclick=function(){
+                if(i.innerText == "="){
+                    let val=document.querySelector("input").value;
+                    console.log(eval(val))
+                    document.querySelector("input").value=eval(val);
+                }
+                else if(i.innerText == "C"){
+                    let val=document.querySelector("input").value=' ';
+                }
+                else{
+                    document.querySelector("input").value += i.innerText;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

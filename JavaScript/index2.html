@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main{
+            width: 50%;
+            height: 200px;
+        }
+        p{
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <p id="p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus molestias iure, totam dicta sequi fuga vitae quisquam recusandae, minima illo repellat ipsum asperiores at rerum dolor! Velit recusandae ab aperiam molestias, sequi accusantium voluptatum aliquid, fugit similique sit, neque reiciendis? Provident nam iusto placeat aliquid, praesentium libero est repudiandae reprehenderit ad cumque ea obcaecati modi doloribus hic quisquam odit, optio culpa maiores dicta eius corrupti in atque. Aperiam, laudantium, facere, aspernatur maxime distinctio fugiat quia quis neque repudiandae vero praesentium magni. A fugiat temporibus adipisci. Vitae, quasi nulla? Quod debitis voluptates exercitationem voluptatem provident voluptatum ratione amet, veritatis vero reprehenderit.</p>
+        <button id="uppercase">uppercase</button>
+        <button id="lowercase">lowercase</button>
+        <button id="+">+</button>
+        <button id="-">-</button>
+        <input type="color" id="color">
+        <input type="range" id="range">
+    </div>
+    <script>
+        let counter=10;
+        document.getElementById("uppercase").onclick=function(){
+            document.getElementById("p").style.textTransform="uppercase"
+        }
+        document.getElementById("lowercase").onclick=function(){
+            document.getElementById("p").style.textTransform="lowercase"
+        }
+        document.getElementById("+").onclick=function(){
+            counter+=10
+            document.getElementById("p").style.fontSize=counter+"px"
+        }
+        document.getElementById("-").onclick=function(){
+           counter-=10
+            document.getElementById("p").style.fontSize=counter+"px"
+        }
+        document.getElementById("color").oninput=function(){
+        let color=document.getElementById("color").value;
+            document.getElementById("p").style.backgroundColor=color
+        }
+        document.getElementById("range").oninput=function(){
+        let fontSize=document.getElementById("range").value;
+            document.getElementById("p").style.fontSize=fontSize+"px"
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #red{
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+            background-color: red;
+            box-shadow: 0px 0px 40px black;
+        }
+        #orange{
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+            background-color: orange;
+            box-shadow: 0px 0px 40px black;
+        }
+        #white{
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+            background-color: wheat;
+            box-shadow: 0px 0px 40px black;
+        }
+        #body{
+            display: flex;
+            gap: 30px;
+        }
+    </style>
+</head>
+<body id="body"> 
+     <div id="red"></div>
+    <div id="orange"></div>
+    <div id="white"></div>
+
+  <script>
+
+document.getElementById("red").onclick=function(){
+    document.getElementById("body").style.backgroundColor="red"
+}
+document.getElementById("orange").onclick=function(){
+    document.getElementById("body").style.backgroundColor="orange"
+}
+document.getElementById("white").onclick=function(){
+    document.getElementById("body").style.backgroundColor="white"
+}
+  </script>
+</body>
+</html>
