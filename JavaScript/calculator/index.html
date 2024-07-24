@@ -45,18 +45,17 @@
                         <button class="l1">0</button>
                         <button class="l2">.</button>
                         <button class="l3">=</button>
-                    </div>qw    1
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        let btnm = document.querySelectorAll("button");
-        for(let i of btnm){
+        let btn = document.querySelectorAll("button");
+        for(let i of btn){
             i.onclick=function(){
                 if(i.innerText == "="){
                     let val=document.querySelector("input").value;
-                    console.log(eval(val))
                     document.querySelector("input").value=eval(val);
                 }
                 else if(i.innerText == "C"){
