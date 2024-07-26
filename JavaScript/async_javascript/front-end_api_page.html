@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+                *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body{
+
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box{
+
+            width: 300px;
+            /* border: 2px solid black; */
+            box-shadow: 0px 0px 10px rgb(156, 155, 155);
+            margin: 5px;
+            flex-grow: 1;
+            padding: 10px;
+            text-align: center;
+        }
+
+        img{
+            width: 100%;
+        }
+
+        button{
+
+            padding: 15px;
+            width: 45%;
+            margin: 10px 5px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn{
+            height: 40px;
+            width: 30px;
+        }
+        input{
+            width: 100px;
+            height: 50px;
+
+        }
+    </style>
+  </head>
+  <body>
+<div class="search"><input type="text">
+<button class="btn">Search</button>
+</div>
+<div class="container"></div>
+<br><br>
+    <script>
+      async function datafetching() {
+        try {
+          let api = await fetch("https://dummyjson.com/products");
+          let json_data = await api.json();
+          console.log(json_data.products);
+          for (let i of json_data.products) {
+            let div = document.createElement("div");
+            let img = document.createElement("img");
+            let title = document.createElement("h3");
+            let price = document.createElement("h2");
+            let product_description = document.createElement("p");
+            let add_cart = document.createElement("button");
+            let buy_now = document.createElement("button");
+
+            title.innerHTML = i.title;
+            add_cart.innerHTML = "Add To Cart";
+            buy_now.innerHTML = "Buy Now";
+            price.innerHTML = i.price;
+           product_description.innerHTML = i.description.slice(0, 80);
+            img.src = i.thumbnail;
+            div.className = "box";
+
+            div.append(img);
+            div.append(title);
+            div.append(price);
+            div.append(product_description);
+            div.append(add_cart)
+            div.append(buy_now)
+document.querySelector("container").append(div)
+            // document.body.append(div)
+          }
+        } 
+        catch {
+          console.log("error!!!!!data not fetched");
+        }
+      }
+      datafetching();
+    </script>
+  </body>
+</html>

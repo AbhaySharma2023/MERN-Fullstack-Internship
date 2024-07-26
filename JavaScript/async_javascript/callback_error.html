@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //this is known as callback hell problem....
+        function food(dish,order){
+            setTimeout(()=>{
+                console.log(dish);
+                if(order){
+                    order();
+                }
+            },1000)
+        }
+
+        food("pizza",()=>{
+            food("burger",()=>{
+                food("pattie",()=>{
+                    food("Cold Drink",()=>{
+                        food("veggie burger",()=>{
+                            food("Meggie",()=>{
+                                food("Momos")
+                            })
+                        })
+                    })
+                })
+            })
+        })
+        //
+
+        //to solve this problem promises introduced
+
+// callback--->callback hell--->promises---->promises chain---->async await
+
+    </script>
+</body>
+</html>
