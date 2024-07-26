@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let a=[10,20,30,"abhay",true,2.3];
+        // for (let i of a){
+        //     console.log(i);
+        // }
+        // for(let i in a){
+        //     console.log(a[i]);
+        // }
+
+        // a.forEach((item,indexing)=>{
+        //     console.log(item,indexing)
+        // })
+// ***************************************************************************************************************
+
+//         Array Methods
+
+//         push
+//         pop
+//         shift
+//         unshift
+//         splice
+//         slice
+//         map
+//         filter
+//         reduce
+//         split
+//         join
+//         flat
+
+// **********************************************************************************************************  
+        //push
+        // a.push("HFT")
+        // console.log(a)
+        // a.push(10000)
+        // console.log(a)
+        //pop
+        // a.pop()
+        // a.pop()
+        // console.log(a)
+        //unshift
+        // a.unshift("abhay")
+        // console.log(a)
+        //Shift
+        // a.shift()
+        //  console.log(a)
+        
+        //slice==>>this method does not do any chande in original array
+    //    console.log(a.slice(index_1(starting_index,ending_index)))
+    // indexing also done in negative (-2...etc)
+//splice=>>this method do changes in original array
+// splice(indexing,removing_count,new value)
+
+
+
+//// MAP ////////
+// let b=a.map((item)=>item+1)
+// console.log(b);
+
+//// Filter ///
+// let b=a.filter((item)=>{
+//     return item>5
+// })
+// console.log(b);
+
+//  reduce //
+
+// let c=a.reduce((x,y)=>x+y)
+// console.log(c)
+
+
+//To convert an n-D size of array in 1-D array we use arr_name.flat()
+
+// let a=[1,2,3,4[100,200,300,[false,"Hft"],"Abhay"],500]
+// console.log(a.flat(3))
+
+//To convert String into array we use array_name.split(",")
+
+// let a="100,200,300,400"
+// let b=a.split(",");
+// console.log(b)
+
+// let a="100-200-300.400"
+// let b=a.split("-").join(".").split(".");
+// console.log(b)
+
+
+//To convert array into string we use join method
+
+// let c=b.join(",")
+// console.log(c)
+    </script>
+</body>
+</html>

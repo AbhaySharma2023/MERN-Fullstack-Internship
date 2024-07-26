@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         let obj={
+// rollno:4,
+// name:"Abhay",
+// email:"abhaysharma4002@gmail.com",
+// age:38,
+// }
+// console.log(obj.name);
+// console.log(obj["email"]);// other syntax to print email
+// console.log(obj.age);
+
+//array of object:-
+// let obj=[
+// {
+// rollno:4,
+// name:"Abhay",
+// email:"abhaysharma4002@gmail.com",
+// age:20,
+// },
+// {
+// rollno:4,
+// name:"Abhay",
+// email:"abhaysharma4002@gmail.com",
+// age:21,
+// },
+// {
+// rollno:4,
+// name:"Abhay",
+// email:"abhaysharma4002@gmail.com",
+// age:22,
+// },
+// {
+// rollno:4,
+// name:"Abhay",
+// email:"abhaysharma4002@gmail.com",
+// age:23,
+// }
+// ]
+// let c=obj.filter((item)=>{
+//     return item.age>20
+// })
+// console.log(c)
+
+
+let obj=[
+{
+rollno:4,
+name:"Abhay",
+email:"abhaysharma4002@gmail.com",
+age:20,
+marks:{
+    "p":20,
+    "c":40,
+    "m":60,
+    per:function(){
+return ((marks["p"]+marks["c"]+marks["m"])/3)
+    }
+},
+
+},
+{
+rollno:4,
+name:"Abhay",
+email:"abhaysharma4002@gmail.com",
+age:21,
+marks:{
+    "p":20,
+    "c":40,
+    "m":60,
+    per:function(){
+    return ((marks["p"]+marks["c"]+marks["m"])/3)
+    }
+},
+
+},
+{
+rollno:4,
+name:"Abhay",
+email:"abhaysharma4002@gmail.com",
+age:22,
+marks:{
+    "p":20,
+    "c":40,
+    "m":60,
+    per:function(){
+    return ((marks["p"]+marks["c"]+marks["m"])/3)
+    }
+},
+
+},
+{
+rollno:4,
+name:"Abhay",
+email:"abhaysharma4002@gmail.com",
+age:23,
+marks:{
+    "p":20,
+    "c":40,
+    "m":60,
+    per:function(){
+    return ((marks["p"]+marks["c"]+marks["m"])/3)
+    }
+},
+
+},
+]
+let c=obj.filter((item)=>{
+    return item.per>75
+})
+console.log(c)
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button id="push">Push</button>
+    <button id="pop">POP</button>
+    <p></p>
+    <script>
+    let arr=[];
+       document.getElementById("push").onclick=function(){
+       let val= document.querySelector("input").value
+    arr.push(val);
+    console.log(arr);
+     val= document.querySelector("input").value=' '
+       }
+       document.getElementById("pop").onclick=function(){
+    let a=arr.pop()
+    document.write();
+       }
+    </script>
+</body>
+</html>
