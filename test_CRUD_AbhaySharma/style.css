@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#heading{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.up{
+    width:30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 40px;
+}
+.up input{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+border: 1px solid silver;
+padding: 3px;
+}
+
+.up #city{
+    height: 40px;
+    background-color: rgb(201, 193, 193);
+    border-radius: 5px;
+border: 1px solid silver;
+}
+.select{
+    display: flex;
+    gap: 10px;
+}
+.select input{
+    height: auto;
+    width: auto;
+   
+}
+
+.up button{
+    height: 40px;
+background-color: rgb(227, 169, 61);
+border: none;
+border-radius: 5px;
+}
+
+
+.down{
+    margin-left: 40px;
+}
+table,th{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+  table,tr,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+
+  i{
+    padding: 5px;
+  }

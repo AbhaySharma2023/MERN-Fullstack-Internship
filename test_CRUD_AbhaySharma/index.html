@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <h1 id="heading">CRUD in JS</h1>
+      <div class="up">
+        <input type="text" id="name" placeholder="Enter your Name" />
+        <input type="text" id="age" placeholder="Enter your age" />
+        <input type="text" id="Mobile" placeholder="Enter your Mobile Number" />
+        <input type="email" id="email" placeholder="Enter your Email" />
+        <div class="select">
+          <input type="radio" id="gender1" value="male" name="gend" />
+          <label for="male">Male</label>
+          <input type="radio" id="gender2" value="Female" name="gend" />
+          <label for="female">Female</label>
+          <input type="radio" id="gender3" value="other" name="gend" />
+          <label for="other">Other</label>
+        </div>
+
+        <select name="city" id="city">
+          <option value="null"></option>
+          <option value="Jaipur">Jaipur</option>
+          <option value="Bhilwara">Bhilwara</option>
+          <option value="Ajmer">Ajmer</option>
+          <option value="Kota">Kota</option>
+          <option value="Jodhpur">Jodhpur</option>
+          <option value="Kota">Kota</option>
+        </select>
+        <button>Submit</button>
+      </div>
+
+      <!-- <div class="down"> -->
+      <table id="myTable">
+        <tr>
+          <th>S.NO</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>Hometown</th>
+          <th>Actions</th>
+        </tr>
+        <!-- <tr>
+            <td>1</td>
+            <td>Abhay</td>
+            <td>20</td>
+            <td>8209271600</td>
+            <td>abhaysharma4002@gmail.com</td>
+            <td>Male</td>
+            <td>Bhilwara</td>
+            <td>
+              <i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash"></i>
+            </td>
+          </tr> -->
+      </table>
+      <!-- </div> -->
+    </div>
+
+    <script>
+      var counter = 0;
+      document.querySelector("button").onclick = function () {
+        let name = document.getElementById("name").value;
+        let age = document.getElementById("age").value;
+        let mobile = document.getElementById("Mobile").value;
+        let email = document.getElementById("email").value;
+        let gender = document.querySelector('input[name="gend"]:checked').value;
+        let city = document.getElementById("city").value;
+        localStorage.setItem("Name", name);
+        localStorage.setItem("Age", age);
+        localStorage.setItem("Mobile Number", mobile);
+        localStorage.setItem("Email", email);
+        localStorage.setItem("gender", gender);
+        localStorage.setItem("city", city);
+
+        let get_name = localStorage.getItem("Name");
+        let get_age = localStorage.getItem("Age");
+        let get_mobile = localStorage.getItem("Mobile Number");
+        let get_email = localStorage.getItem("Email");
+        let get_gender = localStorage.getItem("gender");
+        let get_city = localStorage.getItem("city");
+
+        let table = document.getElementById("myTable");
+        let newRow = table.insertRow(table.rows.length);
+        counter++;
+        newRow.insertCell(0).innerHTML = counter;
+        newRow.insertCell(1).innerHTML = get_name;
+        newRow.insertCell(2).innerHTML = get_age;
+        newRow.insertCell(3).innerHTML = get_mobile;
+        newRow.insertCell(4).innerHTML = get_email;
+        newRow.insertCell(5).innerHTML = get_gender;
+        newRow.insertCell(6).innerHTML = get_city;
+        newRow.insertCell(7).innerHTML =
+          `<button onclick="editData(this)"><i class="fa-solid fa-pen"></i></button>` +
+          `<button onclick="deleteData(this)"><i class="fa-solid fa-trash"></button>`;
+
+        name = document.getElementById("name").value = " ";
+        age = document.getElementById("age").value = " ";
+        mobile = document.getElementById("Mobile").value = " ";
+        email = document.getElementById("email").value = " ";
+        gender = document.querySelector('input[name="gend"]:checked').value;
+        city = document.getElementById("city").value = " ";
+      };
+      function deleteData(button) {
+        counter = 0;
+        let row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+      }
+      function editData(button) {
+let row = button.parentNode.parentNode;
+
+let nameCell = row.cells[1];
+let ageCell = row.cells[2];
+let mobileCell = row.cells[3];
+let emailCell = row.cells[4];
+let genderCell = row.cells[5];
+let cityCell = row.cells[6];
+
+let nameInput =
+    prompt("Enter the updated name:",
+        nameCell.innerHTML);
+let ageInput =
+    prompt("Enter the updated email:",
+        emailCell.innerHTML);
+let mobileInput =
+    prompt("Enter the updated mobile details:",
+        mobileCell.innerHTML
+    );
+let emailInput =
+    prompt("Enter the updated address:",
+        addressCell.innerHTML
+    );
+    let genderInput =
+    prompt("Enter the updated address:",
+        addressCell.innerHTML
+    );
+    let cityInput =
+    prompt("Enter the updated address:",
+        addressCell.innerHTML
+    );
+  
+
+nameCell.innerHTML = nameInput;
+ageCell.innerHTML = ageInput;
+mobileCell.innerHTML = mobileInput;
+emailCell.innerHTML = emailInput;
+mobileCell.innerHTML = mobileInput;
+genderCell.innerHTML = genderInput;
+cityCell.innerHTML = cityInput;
+}
+    </script>
+  </body>
+</html>
